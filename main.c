@@ -47,6 +47,7 @@ int main(){
         
         do{
             readChar = fgetc(fs);
+            // Cek perubahan kategori
             if (category(readChar) != category(prevChar) && category(prevChar) != '0'){
                 temp[sub_templen + 1] = '\0';
                 if (sub_templen > sub_len){
@@ -57,11 +58,12 @@ int main(){
                 memset(temp, '\0', 200);
                 sub_templen = 0;
             }
+            // Tambah karakter pada array temp
             if (readChar != '\n'){
                 temp[sub_templen] = readChar;
                 sub_templen++;
             }
-
+            // Output substring terpanjang
             if (readChar == '\n' || readChar == EOF){
                 printf("%s\n", actual);
                 memset(temp, '\0', 200);
